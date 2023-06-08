@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 更新Yum源脚本（Ubuntu和CentOS适配版）
+# 更新Yum/apt源脚本（Ubuntu和CentOS自适配版）
 # 作者：mvfeng & chatgpt3.5
 # 时间：2023年6月8日
 
