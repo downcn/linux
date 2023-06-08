@@ -1,2 +1,1 @@
-# shell
-shell脚本执行
+# Linux
