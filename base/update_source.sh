@@ -11,7 +11,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # 判断系统是否为CentOS或RedHat或Ubuntu
-os=$(cat /etc/os-release | grep '^ID=' | cut -d= -f2)
+os=$(cat /etc/os-release | grep '^ID=' | cut -d= -f2 | tr -d '"')
 case $os in
     centos|rhel)
         echo "Detected CentOS or RedHat"
