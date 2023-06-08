@@ -56,4 +56,4 @@ elif [[ $os == "ubuntu" ]]; then
     apt update
 fi
 
-echo "Yum源已更新完成。"
+echo "$os 源已更新完成。"
