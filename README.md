@@ -6,6 +6,5 @@
 1.2. Linux有wget则运行:  
  	`wget -O install.sh https://gitee.com/downcn/linux/raw/main/base/update_source.sh && sudo bash install.sh`   
 1.3.  Linux有curl则运行:   
-	`curl -o install.sh https://gitee.com/downcn/linux/raw/main/base/update_source.sh && sudo bash install.sh` 
+	`curl -o install.sh https://gitee.com/downcn/linux/raw/main/base/update_source.sh && sudo bash install.sh`   
 1.4.  更换源完成
-
