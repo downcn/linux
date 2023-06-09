@@ -40,17 +40,22 @@ esac
 # 备份原有Yum源文件
 if [[ $os == "centos" || $os == "rhel" ]]; then
     cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
-elif [[ $os == "ubuntu" ]]; then
-    cp /etc/apt/sources.list /etc/apt/sources.list.bak
-fi
-
-# 更新源文件
-if [[ $os == "centos" || $os == "rhel" ]]; then
-    wget -O /etc/yum.repos.d/CentOS-Base.repo $url
+    # 检查 wget 是否存在
+    if command -v wget &> /dev/null; then
+        wget -O /etc/yum.repos.d/CentOS-Base.repo $url
+    else
+        # 检查 curl 是否存在
+        if ! command -v curl &> /dev/null; then
+            echo "Neither wget nor curl found, please install one of them and retry."
+            exit 1
+        fi
+        curl -o /etc/yum.repos.d/CentOS-Base.repo $url
+    fi
     # 清除Yum缓存并生成新的缓存
     yum clean all
     yum makecache
 elif [[ $os == "ubuntu" ]]; then
+    cp /etc/apt/sources.list /etc/apt/sources.list.bak
     sed -i "s#http://archive.ubuntu.com/#$url#g" /etc/apt/sources.list
     sed -i "s#http://security.ubuntu.com/#$url#g" /etc/apt/sources.list
     apt update
