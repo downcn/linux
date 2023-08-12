@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>one.94c.cn一键脚本就是C</title>
+    <title>a.94c.cn一键脚本就是C</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 	<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 	<script>LA.init({id:"K9d6thir1Aq4HMKr",ck:"K9d6thir1Aq4HMKr"})</script>
 
@@ -28,7 +28,10 @@
       <div class="panel-body">
         <code>
 		curl -sSL https://gitee.com/downcn/linux/raw/main/base/update_source.sh | sudo bash -s
+		# 如果没有安装curl，或者用下面这个[使用任一即可！]
+		wget --no-check-certificate -O - https://gitee.com/downcn/linux/raw/main/base/update_source.sh | sudo bash -s
 		</code>
+		
       </div>
     </div>
   </div>
@@ -45,5 +48,5 @@
  </footer>
 </body>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </html>
