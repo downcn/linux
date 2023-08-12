@@ -40,7 +40,7 @@ esac
 # 备份原有Yum源文件
 if [[ $os == "centos" || $os == "rhel" ]]; then
     cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
-	# 先替换全部为官方源 CentOs Linux8从2021.10.31号后已经停止维护，更新镜像需要通过 vault.centos.org来获取更新。
+	# 先替换全部为官方源 CentOs Linux7/8从2021.10.31号后已经停止维护，更新镜像需要通过 vault.centos.org来获取更新。
 	sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 	sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
     # 检查 wget 是否存在
