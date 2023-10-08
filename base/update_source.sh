@@ -32,6 +32,10 @@ case $os in
         echo "Detected Ubuntu"
         url="http://mirrors.aliyun.com/ubuntu/"
         ;;
+    openEuler)
+        echo "Detected openEuler"
+        url="http://mirrors.aliyun.com/openeuler/"
+        ;;    
     *)
         echo "Unsupported system"
         exit 1
@@ -64,6 +68,13 @@ elif [[ $os == "ubuntu" ]]; then
     sed -i "s#http://archive.ubuntu.com/#$url#g" /etc/apt/sources.list
     sed -i "s#http://security.ubuntu.com/#$url#g" /etc/apt/sources.list
     apt update
+elif [[ $os == "openEuler" ]]; then
+    cp /etc/yum.repos.d/openEuler.repo /etc/yum.repos.d/openEuler.repo.bak
+    sed -i "s#http://repo.openeuler.org/#$url#g" /etc/yum.repos.d/openEuler.repo
+    sed -i "s#https://mirrors.openeuler.org/#$url#g" /etc/yum.repos.d/openEuler.repo
+    # 清除Yum缓存并生成新的缓存
+    yum clean all
+    yum makecache
 fi
 
 echo "$os 源已更新完成。"
