@@ -29,7 +29,7 @@ read -p "请输入BMC 用户名admin " bmc_user
 #
 ipmitool user set name 2 $bmc_user
 #
-read -p "请输入BMC 密码zxw@123 " bmc_passwd
+read -p "请输入BMC 密码admin " bmc_passwd
 
 ipmitool user set password 2 $bmc_passwd
 
