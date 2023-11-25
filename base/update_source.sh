@@ -1,9 +1,7 @@
 #!/bin/bash
-
 # 更新Yum/apt源脚本（Ubuntu和CentOS和华为欧拉openEuler自适配版）
 # 作者：mvfeng & chatgpt3.5
 # 时间：2023年6月8日
-
 # 判断是否为root用户
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
@@ -59,6 +57,13 @@ if [[ $os == "centos" || $os == "rhel" ]]; then
         fi
 	# 后替换基础核心源 阿里源
         curl -o /etc/yum.repos.d/CentOS-Base.repo $url
+    fi
+    # 上面是CentOS Stream源（centos-stream）8.5.2111
+    # 下面是CentOS过期源（centos-vault）非8.5.2111
+    version=$(cat /etc/redhat-release | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+    if [ "$version" != "8.5.2111" ]; then
+        sudo sed -i "s|com/centos/\$releasever|com/centos-vault/\$releasever|g" /etc/yum.repos.d/CentOS-Base.repo
+        sudo sed -i "s/\$releasever/$version/g" /etc/yum.repos.d/CentOS-Base.repo
     fi
     # 清除Yum缓存并生成新的缓存
     yum clean all
