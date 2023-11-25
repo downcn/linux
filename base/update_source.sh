@@ -1,6 +1,6 @@
 #!/bin/bash
 # 更新Yum/apt源脚本（Ubuntu和CentOS和华为欧拉openEuler自适配版）
-# 作者：mvfeng & chatgpt3.5
+# 作者：mvfeng
 # 时间：2023年6月8日
 # 判断是否为root用户
 if [[ $EUID -ne 0 ]]; then

@@ -1,5 +1,5 @@
 ### Linux/base/update_source.sh
-更新Yum/apt源脚本（Ubuntu和CentOS和华为欧拉openEuler自适配版）
+更新Yum/apt源脚本（Ubuntu和CentOS全系列版本和华为欧拉openEuler自适配版）
 
 1.1. 手动输入终端：  
 ```
